@@ -1,0 +1,148 @@
+{
+  "name": "ui_renderer",
+  "version": "1.0.0",
+  "description": "A middleware cell that provides UI rendering capabilities",
+  "author": "QCC Team",
+  "license": "MIT",
+  "capabilities": [
+    {
+      "name": "render_ui",
+      "description": "Render a complete user interface from a layout specification",
+      "version": "1.0.0",
+      "parameters": [
+        {
+          "name": "layout",
+          "type": "object",
+          "description": "Layout specification",
+          "required": true
+        },
+        {
+          "name": "theme",
+          "type": "string",
+          "description": "Theme to apply",
+          "required": false
+        },
+        {
+          "name": "data",
+          "type": "object",
+          "description": "Data to inject into the UI",
+          "required": false
+        },
+        {
+          "name": "options",
+          "type": "object",
+          "description": "Rendering options",
+          "required": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "html",
+          "type": "string",
+          "description": "HTML representation of the user interface",
+          "format": "html"
+        }
+      ]
+    },
+    {
+      "name": "render_component",
+      "description": "Render a specific UI component",
+      "version": "1.0.0",
+      "parameters": [
+        {
+          "name": "component",
+          "type": "string",
+          "description": "Component name",
+          "required": true
+        },
+        {
+          "name": "props",
+          "type": "object",
+          "description": "Component properties",
+          "required": false
+        },
+        {
+          "name": "theme",
+          "type": "string",
+          "description": "Theme to apply",
+          "required": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "html",
+          "type": "string",
+          "description": "HTML representation of the component",
+          "format": "html"
+        }
+      ]
+    },
+    {
+      "name": "apply_theme",
+      "description": "Apply a theme to HTML content",
+      "version": "1.0.0",
+      "parameters": [
+        {
+          "name": "html",
+          "type": "string",
+          "description": "HTML content",
+          "required": true
+        },
+        {
+          "name": "theme",
+          "type": "string",
+          "description": "Theme to apply",
+          "required": true
+        }
+      ],
+      "outputs": [
+        {
+          "name": "themed_html",
+          "type": "string",
+          "description": "Themed HTML content",
+          "format": "html"
+        }
+      ]
+    },
+    {
+      "name": "responsive_adapt",
+      "description": "Adapt HTML content for different devices",
+      "version": "1.0.0",
+      "parameters": [
+        {
+          "name": "html",
+          "type": "string",
+          "description": "HTML content",
+          "required": true
+        },
+        {
+          "name": "device_info",
+          "type": "object",
+          "description": "Device information",
+          "required": true
+        }
+      ],
+      "outputs": [
+        {
+          "name": "adapted_html",
+          "type": "string",
+          "description": "Adapted HTML content",
+          "format": "html"
+        }
+      ]
+    }
+  ],
+  "dependencies": [],
+  "resource_requirements": {
+    "memory_mb": 20,
+    "cpu_percent": 5,
+    "storage_mb": 2
+  },
+  "renderer_settings": {
+    "default_theme": "light",
+    "auto_responsive": true,
+    "cache_rendered": true,
+    "minify_output": true,
+    "escape_unsafe": true
+  }
+}

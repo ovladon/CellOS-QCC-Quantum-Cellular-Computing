@@ -1,0 +1,216 @@
+# QCC Test Configuration
+# This file contains configuration settings for the QCC test environment
+
+# Assembler Configuration
+assembler:
+  host: localhost
+  port: 8080
+  development_mode: false
+  test_mode: true
+  log_level: debug
+  
+  # Resource limits for the assembler process
+  resources:
+    max_memory_mb: 256
+    max_cpu_percent: 50
+    
+  # Security settings for testing
+  security:
+    verification_mode: standard  # Options: standard, strict
+    allow_unverified_cells: true  # Allow unverified cells in testing
+    require_https: false  # Not required for local testing
+    
+  # Performance settings
+  performance:
+    prefetch_enabled: true
+    prefetch_threshold: 0.7
+    cell_cache_size_mb: 128
+    
+  # Intent interpretation settings
+  intent:
+    confidence_threshold: 0.6
+    fallback_capability: text_generation
+    context_window_size: 10
+    
+  # Test-specific assembler settings
+  test:
+    deterministic_mode: true
+    mock_assembler_responses: false
+    force_sequential_execution: true
+
+# Provider Configuration
+providers:
+  - name: mock_provider
+    url: http://localhost:8081
+    priority: 1
+    capabilities:
+      - text_generation
+      - file_system
+      - ui_rendering
+      - data_visualization
+      - network_interface
+      - media_player
+      - text_editor
+      - calculator
+      - image_processing
+    
+  - name: test_cells_provider
+    url: http://localhost:8082
+    priority: 2
+    capabilities:
+      - test_capability_1
+      - test_capability_2
+      - test_capability_3
+
+# Quantum Trail Configuration
+quantum_trail:
+  enabled: true
+  local_blockchain: true
+  deterministic_signatures: true  # Use deterministic signatures for testing
+  sync_interval_ms: 1000
+  
+  # Test blockchain settings
+  blockchain:
+    consensus: simulated
+    block_time_ms: 100
+    storage_path: ./test_data/blockchain
+    in_memory: true
+    
+  # Trail settings
+  trail:
+    anonymization_level: basic  # Options: basic, standard, enhanced
+    pattern_recognition_enabled: true
+    max_trail_history_days: 1
+    test_patterns_enabled: true
+
+# Cell Development Settings
+cells:
+  # Cell runtime settings
+  runtime:
+    execution_timeout_ms: 5000
+    max_memory_per_cell_mb: 50
+    max_concurrent_cells: 10
+    
+  # Cell build settings
+  build:
+    output_directory: ./test_build/cells
+    optimization_level: 0
+    source_maps: true
+    wasm_validation: true
+    
+  # Cell testing settings
+  testing:
+    auto_test_on_build: true
+    test_timeout_ms: 2000
+    coverage_threshold: 90
+    mock_cells_enabled: true
+    default_test_data_path: ./test_data/cell_test_data
+
+# Test Framework Configuration
+test_framework:
+  test_runner: jest
+  parallel_tests: true
+  max_parallel_tests: 4
+  timeout_ms: 30000
+  retry_count: 2
+  junit_report_path: ./test-results/junit.xml
+  coverage_report_path: ./test-results/coverage
+  
+  # Test categories
+  categories:
+    unit: true
+    integration: true
+    e2e: true
+    performance: false
+    security: false
+    
+  # Test mocks
+  mocks:
+    provider_responses: true
+    network_requests: true
+    filesystem_access: true
+    quantum_trail: true
+
+# Logging Configuration
+logging:
+  file_path: ./logs/test.log
+  console_level: debug
+  file_level: trace
+  format: detailed  # Options: simple, detailed, json
+  silent_for_tests: false  # Set to true to suppress logs during automated tests
+  components:
+    assembler: debug
+    cells: debug
+    providers: debug
+    quantum_trail: debug
+    runtime: debug
+    test_framework: debug
+
+# Networking
+network:
+  cors_enabled: true
+  allowed_origins:
+    - http://localhost:3000
+    - http://localhost:8080
+  request_timeout_ms: 10000
+  max_payload_size_mb: 10
+  mock_network_responses: true
+  simulate_network_conditions:
+    enabled: false
+    latency_ms: 100
+    packet_loss_percent: 2
+
+# Storage
+storage:
+  data_directory: ./test_data
+  temp_directory: ./test_temp
+  max_storage_gb: 1
+  
+  # Cache settings
+  cache:
+    enable_filesystem_cache: true
+    cache_directory: ./test_cache
+    max_cache_size_mb: 256
+    ttl_seconds: 300
+    clear_between_tests: true
+
+# Test-specific features
+features:
+  force_cell_reload: true
+  mock_providers: true
+  inject_test_data: true
+  generate_test_scenarios: true
+  randomized_testing: false
+  verbose_test_output: true
+
+# Test data
+test_data:
+  fixtures_path: ./test_data/fixtures
+  sample_user_intents_path: ./test_data/intents
+  sample_solutions_path: ./test_data/solutions
+  cell_test_vectors_path: ./test_data/cell_vectors
+  quantum_trail_samples_path: ./test_data/quantum_trails
+
+# Assertion and validation
+assertions:
+  strict_validation: true
+  response_schema_validation: true
+  cell_behavior_validation: true
+  performance_thresholds:
+    assembly_time_ms: 2000
+    cell_initialization_ms: 500
+    intent_interpretation_ms: 300
+
+# Snapshot testing
+snapshots:
+  enabled: true
+  update_snapshots: false
+  snapshot_dir: ./test_data/snapshots
+  
+# Test reporting
+reporting:
+  generate_html_report: true
+  report_path: ./test-results/report
+  include_screenshots: true
+  record_test_videos: false
+  capture_console_output: true

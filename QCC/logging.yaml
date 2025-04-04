@@ -1,0 +1,67 @@
+# QCC Logging Configuration
+# Detailed configuration for Python's logging module
+
+version: 1
+disable_existing_loggers: false
+
+formatters:
+  standard:
+    format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  detailed:
+    format: "%(asctime)s - %(name)s - %(levelname)s - %(pathname)s:%(lineno)d - %(message)s"
+
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: INFO
+    formatter: standard
+    stream: ext://sys.stdout
+
+  file:
+    class: logging.handlers.RotatingFileHandler
+    level: DEBUG
+    formatter: detailed
+    filename: qcc.log
+    maxBytes: 10485760  # 10MB
+    backupCount: 3
+    encoding: utf8
+
+  error_file:
+    class: logging.handlers.RotatingFileHandler
+    level: ERROR
+    formatter: detailed
+    filename: qcc_error.log
+    maxBytes: 10485760  # 10MB
+    backupCount: 5
+    encoding: utf8
+
+loggers:
+  qcc:
+    level: INFO
+    handlers: [console, file, error_file]
+    propagate: false
+
+  qcc.assembler:
+    level: INFO
+    handlers: [console, file, error_file]
+    propagate: false
+
+  qcc.cells:
+    level: INFO
+    handlers: [console, file]
+    propagate: false
+
+  qcc.quantum_trail:
+    level: INFO
+    handlers: [console, file]
+    propagate: false
+
+  qcc.providers:
+    level: INFO
+    handlers: [console, file]
+    propagate: false
+
+root:
+  level: WARNING
+  handlers: [console, file, error_file]
+  propagate: true

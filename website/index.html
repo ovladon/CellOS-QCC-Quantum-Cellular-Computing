@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CellOS - Quantum Cellular Computing, the next evolution in operating systems">
+    <title>CellOS - Quantum Cellular Computing</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <a href="/">
+                        <img src="img/cellos-logo.svg" alt="CellOS Logo">
+                        <span>CellOS</span>
+                    </a>
+                </div>
+                <div class="nav-links">
+                    <a href="#vision">Vision</a>
+                    <a href="#technology">Technology</a>
+                    <a href="#applications">Applications</a>
+                    <a href="#research">Research</a>
+                    <a href="https://github.com/ovladon/QCC" target="_blank">GitHub</a>
+                    <a href="#blog">Blog</a>
+                </div>
+                <button class="mobile-menu-btn" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>The Operating System <br><span>Reimagined</span></h1>
+                    <p>CellOS uses specialized AI "cells" that dynamically assemble to fulfill computing needs, with only a lightweight assembler permanently installed on your device.</p>
+                    
+                    <div class="hero-cta">
+                        <a href="#vision" class="btn btn-primary">Explore the Vision</a>
+                        <a href="https://github.com/ovladon/QCC" class="btn btn-secondary" target="_blank">View on GitHub</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="cell-animation" id="cellAnimation">
+                        <!-- The cells animation will be rendered here by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vision Section -->
+        <section id="vision" class="section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Vision</h2>
+                    <p>Computing that adapts to human needs without requiring humans to adapt to computing limitations</p>
+                </div>
+                <div class="vision-content">
+                    <div class="vision-cards">
+                        <div class="vision-card">
+                            <div class="icon">
+                                <svg viewBox="0 0 24 24" width="24" height="24">
+                                    <path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 100-16 8 8 0 000 16zm-5-8h2a3 3 0 006 0h2a5 5 0 01-10 0z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <h3>Dynamic Assembly</h3>
+                            <p>Only the functionality you need, when you need it. No bloated installations or unused resources.</p>
+                        </div>
+                        <div class="vision-card">
+                            <div class="icon">
+                                <svg viewBox="0 0 24 24" width="24" height="24">
+                                    <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <h3>Enhanced Security</h3>
+                            <p>Minimal permanent attack surface. Cells exist only when needed and operate in isolated environments.</p>
+                        </div>
+                        <div class="vision-card">
+                            <div class="icon">
+                                <svg viewBox="0 0 24 24" width="24" height="24">
+                                    <path d="M12 11a5 5 0 015 5v6h-2v-6a3 3 0 00-3-3 3 3 0 00-3 3v6H7v-6a5 5 0 015-5zm0-10a3 3 0 110 6 3 3 0 010-6zm0 2a1 1 0 100 2 1 1 0 000-2z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <h3>Private Personalization</h3>
+                            <p>Quantum trails provide personalization without identification. Your experience adapts to you while preserving your privacy.</p>
+                        </div>
+                        <div class="vision-card">
+                            <div class="icon">
+                                <svg viewBox="0 0 24 24" width="24" height="24">
+                                    <path d="M15 4a8 8 0 018 8 8 8 0 01-8 8H9a8 8 0 01-8-8 8 8 0 018-8h6zm0 2H9a6 6 0 00-6 6 6 6 0 006 6h6a6 6 0 006-6 6 6 0 00-6-6zM9 8a4 4 0 110 8 4 4 0 010-8zm0 2a2 2 0 100 4 2 2 0 000-4z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <h3>Universal Compatibility</h3>
+                            <p>Functionality becomes the universal language. Components work together regardless of origin or implementation.</p>
+                        </div>
+                    </div>
+                    <div class="vision-description">
+                        <p>CellOS represents a fundamental shift in how we think about computing systems. Instead of static, installed applications, CellOS uses specialized AI "cells" that dynamically assemble to fulfill your needs.</p>
+                        <p>The only permanent component on your device is a lightweight "assembler" that orchestrates these cells. Everything else—from system processes to applications—is constructed on-demand through temporary cell assemblies.</p>
+                        <p>This architecture offers unprecedented advantages in efficiency, security, adaptation, and privacy. By making computing truly dynamic, CellOS delivers a system that adapts to you rather than forcing you to adapt to it.</p>
+                        <div class="vision-quote">
+                            <blockquote>
+                                <p>"The ultimate expression of this vision is computing that adapts to human needs without requiring humans to adapt to computing limitations."</p>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technology Section -->
+        <section id="technology" class="section-padding section-dark">
+            <div class="container">
+                <div class="section-header">
+                    <h2>The Technology</h2>
+                    <p>Four revolutionary components that transform the computing experience</p>
+                </div>
+                <div class="tech-diagram">
+                    <div class="tech-component">
+                        <div class="tech-icon assembler-icon"></div>
+                        <h3>The Assembler</h3>
+                        <p>The only permanent component on your device. It interprets your intent, requests appropriate cells, and orchestrates them into a cohesive solution.</p>
+                    </div>
+                    <div class="tech-component">
+                        <div class="tech-icon cells-icon"></div>
+                        <h3>AI Cells</h3>
+                        <p>Specialized mini language models with specific capabilities. Each cell is small, focused, and exists only for the duration of its need.</p>
+                    </div>
+                    <div class="tech-component">
+                        <div class="tech-icon provider-icon"></div>
+                        <h3>Provider Services</h3>
+                        <p>Cloud repositories of verified cells that respond to assembler requests, ensuring cells are secure, up-to-date, and optimized.</p>
+                    </div>
+                    <div class="tech-component">
+                        <div class="tech-icon quantum-trail-icon"></div>
+                        <h3>Quantum Trails</h3>
+                        <p>A blockchain-based system that maintains anonymous signatures of successful cell assemblies, enabling personalization without identification.</p>
+                    </div>
+                </div>
+                <div class="tech-details">
+                    <div class="tech-tabs">
+                        <button class="tab-btn active" data-tab="architecture">Architecture</button>
+                        <button class="tab-btn" data-tab="security">Security</button>
+                        <button class="tab-btn" data-tab="privacy">Privacy</button>
+                        <button class="tab-btn" data-tab="evolution">Evolution</button>
+                    </div>
+                    <div class="tab-content">
+                        <div id="architecture" class="tab-pane active">
+                            <h4>Dynamic Architecture</h4>
+                            <p>CellOS replaces the traditional static operating system with a dynamic assembly of specialized AI cells. The system operates through a cyclical process:</p>
+                            <ol>
+                                <li>The assembler interprets your intent through natural language or contextual clues</li>
+                                <li>It identifies the capabilities required to fulfill your need</li>
+                                <li>Appropriate cells are requested from providers and verified for security</li>
+                                <li>Cells are connected to form a cohesive solution with the assembler establishing communication channels</li>
+                                <li>The assembled solution executes, fulfilling your intent</li>
+                                <li>When the task is complete, resources are released and cells are terminated</li>
+                                <li>Performance metrics and usage patterns are recorded in the quantum trail system</li>
+                            </ol>
+                            <p>This process occurs for each user intent, with the system becoming more efficient over time as it learns from previous assemblies.</p>
+                        </div>
+                        <div id="security" class="tab-pane">
+                            <h4>Revolutionary Security Model</h4>
+                            <p>CellOS fundamentally reimagines cybersecurity by making the conventional attack surface ephemeral:</p>
+                            <ul>
+                                <li><strong>Reduced Attack Surface:</strong> With only the assembler permanently installed, attackers have minimal persistent code to target.</li>
+                                <li><strong>Moving Target Defense:</strong> The dynamic composition of cells creates a naturally shifting architecture that's difficult to attack.</li>
+                                <li><strong>Micro-Segmentation by Design:</strong> Each cell operates with limited scope and permissions, creating natural security boundaries.</li>
+                                <li><strong>Post-Compromise Recovery:</strong> If a cell is compromised, the system can blacklist it and assemble an alternative solution.</li>
+                                <li><strong>Quantum-Resistant Cryptography:</strong> The system uses post-quantum cryptographic algorithms to ensure security even against quantum attacks.</li>
+                            </ul>
+                        </div>
+                        <div id="privacy" class="tab-pane">
+                            <h4>Privacy by Design</h4>
+                            <p>The quantum trail mechanism creates a paradigm shift in privacy:</p>
+                            <ul>
+                                <li><strong>Anonymity with Personalization:</strong> The system recognizes usage patterns without knowing your identity.</li>
+                                <li><strong>Zero-Knowledge Architecture:</strong> The blockchain-based trail system enables verification without revealing underlying data.</li>
+                                <li><strong>Distributed Trust Model:</strong> No single entity holds complete user information.</li>
+                                <li><strong>Self-Sovereign Computing:</strong> You own your computing experience without it being tied to personal identifiers.</li>
+                                <li><strong>Data Minimization:</strong> The system collects only the information necessary for its operation, and that information is anonymized by design.</li>
+                            </ul>
+                        </div>
+                        <div id="evolution" class="tab-pane">
+                            <h4>Human-Centric Evolution</h4>
+                            <p>CellOS cells can evolve through several mechanisms, always constrained by human safety and welfare principles:</p>
+                            <ul>
+                                <li><strong>Performance-Based Optimization:</strong> Cells improve based on execution metrics</li>
+                                <li><strong>Usage Pattern Adaptation:</strong> Cells specialize based on how they're used</li>
+                                <li><strong>Dynamic Specialization:</strong> Generalist cells evolve into specialists</li>
+                                <li><strong>Collaborative Improvement:</strong> Cells learn from interactions with other cells</li>
+                            </ul>
+                            <p>This evolution is governed by strict safety constraints:</p>
+                            <ul>
+                                <li><strong>Mandatory Safety Verification:</strong> All evolutionary changes must pass safety verification</li>
+                                <li><strong>Human Welfare Metrics:</strong> Evolution is evaluated against metrics for human benefit</li>
+                                <li><strong>Explainability Requirements:</strong> Evolved behaviors must be explainable to humans</li>
+                                <li><strong>Reversion Mechanisms:</strong> Problematic evolutions can be quickly reversed</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Applications Section -->
+        <section id="applications" class="section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Applications</h2>
+                    <p>From consumer computing to industrial systems, CellOS transforms how we interact with technology</p>
+                </div>
+                <div class="applications-grid">
+                    <div class="application-card">
+                        <div class="application-icon">
+                            <svg viewBox="0 0 24 24" width="32" height="32">
+                                <path d="M21 3a1 1 0 011 1v16a1 1 0 01-1 1H3a1 1 0 01-1-1V4a1 1 0 011-1h18zm-1 2H4v14h16V5zm-2 2v2H6V7h12zm-6 4v6h-2v-6h2zm4 0v6h-2v-6h2zm-8 0v6H6v-6h2z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h3>Operating System as a Service</h3>
+                        <p>CellOS enables OS functionality on demand, tailored to specific needs. Device-independent computing environments follow users across hardware with seamless transitions.</p>
+                        <ul class="application-features">
+                            <li>On-demand functionality</li>
+                            <li>Device independence</li>
+                            <li>Seamless transitions</li>
+                            <li>Resource optimization</li>
+                        </ul>
+                    </div>
+                    <div class="application-card">
+                        <div class="application-icon">
+                            <svg viewBox="0 0 24 24" width="32" height="32">
+                                <path d="M12 16l4-4h-3V3h-2v9H8l4 4zm9 4v-2a3 3 0 00-3-3h-4v2h4a1 1 0 011 1v2H5v-2a1 1 0 011-1h4v-2H6a3 3 0 00-3 3v2a1 1 0 001 1h16a1 1 0 001-1z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h3>Industrial Systems</h3>
+                        <p>In industrial environments, CellOS provides specialized configurations for manufacturing processes with dynamic adaptation to changing requirements.</p>
+                        <ul class="application-features">
+                            <li>Specialized configurations</li>
+                            <li>Dynamic adaptation</li>
+                            <li>Isolated security domains</li>
+                            <li>Reduced resource requirements</li>
+                        </ul>
+                    </div>
+                    <div class="application-card">
+                        <div class="application-icon">
+                            <svg viewBox="0 0 24 24" width="32" height="32">
+                                <path d="M17 15.245v6.872a.5.5 0 01-.757.429L12 20l-4.243 2.546a.5.5 0 01-.757-.43v-6.87a8 8 0 1110 0zm-8 1.173v3.954l3-1.8 3 1.8v-3.954A7.978 7.978 0 0112 17a7.978 7.978 0 01-3-.582zM12 15a6 6 0 100-12 6 6 0 000 12z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h3>IoT Ecosystems</h3>
+                        <p>CellOS addresses key challenges in IoT deployments with its minimal permanent footprint for resource-constrained devices and dynamic functionality updates.</p>
+                        <ul class="application-features">
+                            <li>Minimal footprint</li>
+                            <li>Dynamic updates</li>
+                            <li>Specialized processing</li>
+                            <li>Standardized communication</li>
+                        </ul>
+                    </div>
+                    <div class="application-card">
+                        <div class="application-icon">
+                            <svg viewBox="0 0 24 24" width="32" height="32">
+                                <path d="M13 18v2h6v2h-6a2 2 0 01-2-2v-2H8a4 4 0 01-4-4V8h2v6a2 2 0 002 2h3v-2.126c0-.562.319-1.061.75-1.344a5.5 5.5 0 100-7.06C11.319 5.186 11 4.688 11 4.125V2H8a2 2 0 00-2 2v6H4V4a4 4 0 014-4h14v2h-5v2.126c0 .562-.318 1.061-.75 1.344a5.5 5.5 0 100 7.06c.432.283.75.782.75 1.344V16h5v2h-9zm-1-8a3.5 3.5 0 110-7 3.5 3.5 0 010 7zm0 10a3.5 3.5 0 110-7 3.5 3.5 0 010 7z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h3>Edge Computing</h3>
+                        <p>CellOS provides a natural framework for edge computing with distributed processing across devices based on capability and dynamic workload distribution.</p>
+                        <ul class="application-features">
+                            <li>Distributed processing</li>
+                            <li>Dynamic workload distribution</li>
+                            <li>Localized processing</li>
+                            <li>Resilience through redundancy</li>
+                        </ul>
+                    </div>
+                    <div class="application-card">
+                        <div class="application-icon">
+                            <svg viewBox="0 0 24 24" width="32" height="32">
+                                <path d="M17 2a3 3 0 013 3v14a3 3 0 01-3 3H7a3 3 0 01-3-3V5a3 3 0 013-3h10zm0 2H7a1 1 0 00-1 1v14a1 1 0 001 1h10a1 1 0 001-1V5a1 1 0 00-1-1zM12 19a1 1 0 110-2 1 1 0 010 2z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h3>Accessibility</h3>
+                        <p>The adaptable nature of CellOS offers significant benefits for accessibility with personalized interfaces based on user capabilities and dynamic adaptation.</p>
+                        <ul class="application-features">
+                            <li>Personalized interfaces</li>
+                            <li>Dynamic adaptation</li>
+                            <li>Specialized accessibility cells</li>
+                            <li>Consistent cross-device experience</li>
+                        </ul>
+                    </div>
+                    <div class="application-card">
+                        <div class="application-icon">
+                            <svg viewBox="0 0 24 24" width="32" height="32">
+                                <path d="M9.83 8.79L8 9.456V13H6V8.05l5.37-2.01A4.531 4.531 0 0117.9 8.837L19 10.9V17a2 2 0 01-2 2H7a2 2 0 01-2-2V8.925L2.72 9.69C2.295 9.842 2 10.274 2 10.75v7.5c0 .138.112.25.25.25h1.883c.139 0 .25-.112.25-.25v-7.5c0-.287.184-.53.431-.634L6.5 9.432v7.067A4.001 4.001 0 0010.5 21h3.001a4.001 4.001 0 004-4.5v-7.565a3 3 0 00-7.672-.206zM12 10a1 1 0 10-2 0v1a1 1 0 102 0v-1zm3 0a1 1 0 10-2 0v1a1 1 0 102 0v-1zm-6 6a1 1 0 100 2h6a1 1 0 100-2H9z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h3>Healthcare</h3>
+                        <p>In healthcare, CellOS enables secure, specialized processing for medical applications with strict privacy guarantees and adaptive interfaces for diverse users.</p>
+                        <ul class="application-features">
+                            <li>Secure medical processing</li>
+                            <li>Strict privacy guarantees</li>
+                            <li>Adaptive medical interfaces</li>
+                            <li>Specialized diagnostic cells</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Section -->
+        <section id="research" class="section-padding section-dark">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Research</h2>
+                    <p>Exploring the theoretical foundations and practical applications of Quantum Cellular Computing</p>
+                </div>
+                <div class="research-content">
+                    <div class="paper-highlight">
+                        <div class="paper-image">
+                            <img src="img/whitepaper-cover.png" alt="QCC Whitepaper Cover">
+                        </div>
+                        <div class="paper-info">
+                            <h3>Quantum Cellular Computing: A Novel Paradigm for Dynamic Operating System Architecture</h3>
+                            <p class="paper-authors">Author Name, Institution</p>
+                            <p class="paper-abstract">This paper introduces Quantum Cellular Computing (QCC), a revolutionary computing paradigm that reinvents the traditional concept of an operating system. Instead of permanent, static components, QCC employs specialized AI "cells" that dynamically assemble to fulfill computing needs, facilitated by a lightweight persistent assembler.</p>
+                            <div class="paper-links">
+                                <a href="papers/qcc-whitepaper.pdf" class="btn btn-secondary">Read the Paper</a>
+                                <a href="https://arxiv.org/" class="btn btn-outline">View on arXiv</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="research-roadmap">
+                        <h3>Research Roadmap</h3>
+                        <div class="roadmap-timeline">
+                            <div class="roadmap-phase">
+                                <div class="phase-marker phase-current"></div>
+                                <div class="phase-content">
+                                    <h4>Phase 1: Conceptual Validation</h4>
+                                    <p>We are currently formalizing cell interface specifications, simulating cell assembly dynamics, and validating the quantum trail concept.</p>
+                                    <ul>
+                                        <li>Cell interface formalization</li>
+                                        <li>Assembly simulation</li>
+                                        <li>Quantum trail validation</li>
+                                        <li>Reference implementation</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="roadmap-phase">
+                                <div class="phase-marker"></div>
+                                <div class="phase-content">
+                                    <h4>Phase 2: Prototype Implementation</h4>
+                                    <p>Next, we'll develop a production-quality assembler, create comprehensive cell libraries, and implement secure verification mechanisms.</p>
+                                    <ul>
+                                        <li>Production assembler</li>
+                                        <li>Cell libraries</li>
+                                        <li>Quantum cryptography integration</li>
+                                        <li>User experience optimization</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="roadmap-phase">
+                                <div class="phase-marker"></div>
+                                <div class="phase-content">
+                                    <h4>Phase 3: Vertical Deployment</h4>
+                                    <p>We'll implement a complete vertical slice (e.g., media processing), conduct real-world testing, and develop cell marketplace concepts.</p>
+                                    <ul>
+                                        <li>Vertical implementation</li>
+                                        <li>Real-world testing</li>
+                                        <li>OS integration</li>
+                                        <li>Cell marketplace</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="roadmap-phase">
+                                <div class="phase-marker"></div>
+                                <div class="phase-content">
+                                    <h4>Phase 4: Full System Development</h4>
+                                    <p>Finally, we'll expand to complete OS functionality, integrate advanced security, and develop cross-device synchronization.</p>
+                                    <ul>
+                                        <li>Complete OS functionality</li>
+                                        <li>Advanced security</li>
+                                        <li>Cell evolution mechanisms</li>
+                                        <li>Industry implementations</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Preview Section -->
+        <section id="blog" class="section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Latest Updates</h2>
+                    <p>News, insights, and developments from the CellOS project</p>
+                </div>
+                <div class="blog-preview">
+                    <article class="blog-card">
+                        <div class="blog-image">
+                            <img src="img/blog-1.jpg" alt="Introducing Quantum Cellular Computing">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-date">March 25, 2025</div>
+                            <h3>Introducing Quantum Cellular Computing</h3>
+                            <p>Today marks the official unveiling of the Quantum Cellular Computing concept. After months of theoretical development and preliminary implementation work, we're excited to share this vision with the world.</p>
+                            <a href="blog/introducing-qcc.html" class="read-more">Read More</a>
+                        </div>
+                    </article>
+                    <article class="blog-card">
+                        <div class="blog-image">
+                            <img src="img/blog-2.jpg" alt="The Technical Architecture Behind CellOS">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-date">March 24, 2025</div>
+                            <h3>The Technical Architecture Behind CellOS</h3>
+                            <p>In this post, we dive deep into the four core components of the CellOS architecture: the Assembler, AI Cells, Provider Services, and the Quantum Trail system.</p>
+                            <a href="blog/technical-architecture.html" class="read-more">Read More</a>
+                        </div>
+                    </article>
+                    <article class="blog-card">
+                        <div class="blog-image">
+                            <img src="img/blog-3.jpg" alt="Privacy in the Age of Intelligent Computing">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-date">March 22, 2025</div>
+                            <h3>Privacy in the Age of Intelligent Computing</h3>
+                            <p>How does CellOS approach the fundamental tension between personalization and privacy? This post explores our innovative approach to providing adaptive experiences without compromising user anonymity.</p>
+                            <a href="blog/privacy-intelligent-computing.html" class="read-more">Read More</a>
+                        </div>
+                    </article>
+                </div>
+                <div class="blog-all">
+                    <a href="blog/index.html" class="btn btn-secondary">View All Posts</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Get Involved Section -->
+        <section id="get-involved" class="section-padding section-dark">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Get Involved</h2>
+                    <p>Join us in reimagining computing for the AI age</p>
+                </div>
+                <div class="involvement-options">
+                    <div class="involvement-card">
+                        <h3>For Developers</h3>
+                        <p>Contribute to the code, create new cells, or help improve the core architecture.</p>
+                        <ul>
+                            <li><a href="https://github.com/ovladon/QCC" target="_blank">GitHub Repository</a></li>
+                            <li><a href="docs/development-guide.html">Development Guide</a></li>
+                            <li><a href="docs/cell-creation.html">Cell Creation Tutorial</a></li>
+                        </ul>
+                    </div>
+                    <div class="involvement-card">
+                        <h3>For Researchers</h3>
+                        <p>Explore the theoretical implications, contribute to papers, or collaborate on experiments.</p>
+                        <ul>
+                            <li><a href="research/index.html">Research Projects</a></li>
+                            <li><a href="research/collaborate.html">Collaboration Opportunities</a></li>
+                            <li><a href="papers/index.html">Publication Archive</a></li>
+                        </ul>
+                    </div>
+                    <div class="involvement-card">
+                        <h3>For Industry</h3>
+                        <p>Explore applications in your domain, partner on implementations, or support development.</p>
+                        <ul>
+                            <li><a href="industry/use-cases.html">Industry Use Cases</a></li>
+                            <li><a href="industry/partnership.html">Partnership Opportunities</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="involvement-card">
+                        <h3>For Everyone</h3>
+                        <p>Stay informed, share the vision, or join the community discussion.</p>
+                        <ul>
+                            <li><a href="#newsletter">Subscribe to Updates</a></li>
+                            <li><a href="community/forum.html">Join the Forum</a></li>
+                            <li><a href="community/events.html">Upcoming Events</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section id="newsletter" class="section-padding">
+            <div class="container">
+                <div class="newsletter-content">
+                    <h2>Stay Updated</h2>
+                    <p>Subscribe to receive news, research updates, and development milestones.</p>
+                    <form class="newsletter-form" action="/subscribe" method="post">
+                        <input type="email" name="email" placeholder="Your email address" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                    <p class="privacy-note">We respect your privacy. You can unsubscribe at any time.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-logo">
+                    <img src="img/cellos-logo-white.svg" alt="CellOS Logo">
+                    <span>CellOS</span>
+                </div>
+                <div class="footer-nav">
+                    <div class="footer-nav-column">
+                        <h4>Project</h4>
+                        <ul>
+                            <li><a href="#vision">Vision</a></li>
+                            <li><a href="#technology">Technology</a></li>
+                            <li><a href="#applications">Applications</a></li>
+                            <li><a href="#research">Research</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-nav-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="docs/index.html">Documentation</a></li>
+                            <li><a href="papers/index.html">Papers</a></li>
+                            <li><a href="blog/index.html">Blog</a></li>
+                            <li><a href="https://github.com/ovladon/QCC" target="_blank">GitHub</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-nav-column">
+                        <h4>Community</h4>
+                        <ul>
+                            <li><a href="community/forum.html">Forum</a></li>
+                            <li><a href="community/events.html">Events</a></li>
+                            <li><a href="community/contribute.html">Contribute</a></li>
+                            <li><a href="community/code-of-conduct.html">Code of Conduct</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-nav-column">
+                        <h4>Connect</h4>
+                        <ul>
+                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="https://twitter.com/cellos_tech" target="_blank">Twitter</a></li>
+                            <li><a href="https://linkedin.com/company/cellos-tech" target="_blank">LinkedIn</a></li>
+                            <li><a href="https://discord.gg/cellos" target="_blank">Discord</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    &copy; 2025 CellOS. All rights reserved.
+                </div>
+                <div class="footer-links">
+                    <a href="legal/privacy-policy.html">Privacy Policy</a>
+                    <a href="legal/terms-of-service.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

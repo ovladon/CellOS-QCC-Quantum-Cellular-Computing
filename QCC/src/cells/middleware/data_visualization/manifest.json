@@ -1,0 +1,193 @@
+{
+  "name": "data_visualization",
+  "version": "1.0.0",
+  "description": "A middleware cell that provides data visualization capabilities",
+  "author": "QCC Team",
+  "license": "MIT",
+  "capabilities": [
+    {
+      "name": "visualize_data",
+      "description": "Create visualizations from data",
+      "version": "1.0.0",
+      "parameters": [
+        {
+          "name": "data",
+          "type": "any",
+          "description": "Data to visualize",
+          "required": true
+        },
+        {
+          "name": "visualization_type",
+          "type": "string",
+          "description": "Type of visualization to create (bar, line, pie, scatter, etc.)",
+          "required": true
+        },
+        {
+          "name": "options",
+          "type": "object",
+          "description": "Visualization options",
+          "required": false
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "description": "Chart title",
+          "required": false
+        },
+        {
+          "name": "width",
+          "type": "number",
+          "description": "Chart width in pixels",
+          "required": false
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "description": "Chart height in pixels",
+          "required": false
+        },
+        {
+          "name": "colors",
+          "type": "array",
+          "description": "Custom color palette",
+          "required": false
+        },
+        {
+          "name": "theme",
+          "type": "string",
+          "description": "Chart theme (light, dark)",
+          "required": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "html",
+          "type": "string",
+          "description": "HTML representation of the visualization"
+        },
+        {
+          "name": "chart_id",
+          "type": "string",
+          "description": "Unique ID for the chart"
+        }
+      ]
+    },
+    {
+      "name": "create_dashboard",
+      "description": "Create a dashboard with multiple visualizations",
+      "version": "1.0.0",
+      "parameters": [
+        {
+          "name": "visualizations",
+          "type": "array",
+          "description": "Array of visualization specifications",
+          "required": true
+        },
+        {
+          "name": "layout",
+          "type": "object",
+          "description": "Dashboard layout configuration",
+          "required": false
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "description": "Dashboard title",
+          "required": false
+        },
+        {
+          "name": "theme",
+          "type": "string",
+          "description": "Dashboard theme (light, dark)",
+          "required": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "html",
+          "type": "string",
+          "description": "HTML representation of the dashboard"
+        },
+        {
+          "name": "dashboard_id",
+          "type": "string",
+          "description": "Unique ID for the dashboard"
+        }
+      ]
+    },
+    {
+      "name": "export_visualization",
+      "description": "Export a visualization in various formats",
+      "version": "1.0.0",
+      "parameters": [
+        {
+          "name": "chart_id",
+          "type": "string",
+          "description": "ID of the chart to export",
+          "required": true
+        },
+        {
+          "name": "format",
+          "type": "string",
+          "description": "Export format (png, jpg, svg, pdf)",
+          "required": true
+        },
+        {
+          "name": "options",
+          "type": "object",
+          "description": "Export options",
+          "required": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "data",
+          "type": "string",
+          "description": "Exported visualization data (base64 encoded)"
+        },
+        {
+          "name": "format",
+          "type": "string",
+          "description": "Format of the exported data"
+        }
+      ]
+    },
+    {
+      "name": "get_visualization_types",
+      "description": "Get available visualization types",
+      "version": "1.0.0",
+      "parameters": [],
+      "outputs": [
+        {
+          "name": "visualization_types",
+          "type": "array",
+          "description": "List of available visualization types"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "capability": "data_transform",
+      "required": false,
+      "description": "For advanced data transformation"
+    }
+  ],
+  "resource_requirements": {
+    "memory_mb": 75,
+    "cpu_percent": 15,
+    "storage_mb": 10
+  },
+  "settings": {
+    "default_width": 800,
+    "default_height": 500,
+    "default_theme": "light",
+    "max_data_points": 10000,
+    "enable_animations": true,
+    "chart_library": "default",
+    "color_palette": [
+      "#4E79A7", "#F28E2B", "#E15759", "#76B7B2", "#59A14F",
+      "#EDC948", "#B07AA1", "#FF9DA7", "#9C755F", "#BAB0AC"
+    ]
+  }
+}

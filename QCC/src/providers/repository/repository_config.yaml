@@ -1,0 +1,25 @@
+storage:
+  type: "distributed"  # Options: local, s3, distributed
+  path: "/path/to/storage"
+  encryption: true
+  compression: true
+
+indexing:
+  strategy: "hybrid"  # Options: simple, capability, vector, hybrid
+  search_backend: "elasticsearch"
+  cache_size_mb: 512
+  update_strategy: "immediate"
+
+versioning:
+  strategy: "semantic"
+  conflict_resolution: "auto"
+  max_versions_per_cell: 10
+  prune_policy: "keep_major"
+
+metadata:
+  schema_validation: true
+  required_fields:
+    - "capabilities"
+    - "resource_requirements"
+    - "security_info"
+  extended_stats: true

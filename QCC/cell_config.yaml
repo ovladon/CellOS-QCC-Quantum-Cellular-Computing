@@ -1,0 +1,81 @@
+# QCC Cell Configuration
+# Configuration settings for specific cells
+
+# Text Editor Cell
+text_editor:
+  max_document_size_kb: 1024
+  auto_save_enabled: true
+  auto_save_interval_sec: 60
+  max_documents: 10
+  syntax_highlighting: true
+  supported_formats:
+    - "txt"
+    - "md"
+    - "json"
+    - "yaml"
+    - "py"
+    - "js"
+    - "html"
+    - "css"
+
+# Media Player Cell
+media_player:
+  supported_audio_formats:
+    - "mp3"
+    - "wav"
+    - "ogg"
+    - "m4a"
+    - "flac"
+  supported_video_formats:
+    - "mp4"
+    - "webm"
+    - "ogv"
+  max_playlist_items: 100
+  autoplay: true
+  buffer_size_mb: 20
+
+# File System Cell
+file_system:
+  root_directory: "data/user_files"
+  max_file_size_mb: 100
+  allowed_operations:
+    - "read"
+    - "write"
+    - "delete"
+    - "list"
+  restricted_paths:
+    - "/system"
+    - "/config"
+  auto_backup: true
+  backup_interval_hours: 24
+
+# Network Interface Cell
+network_interface:
+  allowed_domains:
+    - "*"  # All domains allowed in development
+  blocked_domains:
+    - "malicious-site.com"
+  max_request_size_mb: 10
+  require_https: true
+  verify_ssl: true
+  request_timeout_sec: 30
+  max_connections: 20
+
+# Data Visualization Cell
+data_visualization:
+  max_data_points: 10000
+  default_theme: "light"
+  default_chart_width: 800
+  default_chart_height: 500
+  enable_animations: true
+  color_palette:
+    - "#4e79a7"
+    - "#f28e2c"
+    - "#e15759"
+    - "#76b7b2"
+    - "#59a14f"
+    - "#edc949"
+    - "#af7aa1"
+    - "#ff9da7"
+    - "#9c755f"
+    - "#bab0ab"

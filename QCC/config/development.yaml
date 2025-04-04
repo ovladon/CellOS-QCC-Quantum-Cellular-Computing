@@ -1,0 +1,165 @@
+# QCC Development Configuration
+# This file contains configuration settings for the QCC development environment
+
+# Assembler Configuration
+assembler:
+  host: localhost
+  port: 8080
+  development_mode: true
+  log_level: debug
+  
+  # Resource limits for the assembler process
+  resources:
+    max_memory_mb: 512
+    max_cpu_percent: 80
+    
+  # Security settings for development
+  security:
+    verification_mode: standard  # Options: standard, strict
+    allow_unverified_cells: true  # Only for development
+    require_https: false  # Disable in development for convenience
+    
+  # Performance settings
+  performance:
+    prefetch_enabled: true
+    prefetch_threshold: 0.7
+    cell_cache_size_mb: 256
+    
+  # Intent interpretation settings
+  intent:
+    confidence_threshold: 0.6
+    fallback_capability: text_generation
+    context_window_size: 10
+
+# Provider Configuration
+providers:
+  - name: local_provider
+    url: http://localhost:8081
+    priority: 1
+    capabilities:
+      - text_generation
+      - file_system
+      - ui_rendering
+      - data_visualization
+      - network_interface
+      - media_player
+    
+  - name: test_provider
+    url: http://localhost:8082
+    priority: 2
+    capabilities:
+      - text_editor
+      - calculator
+      - image_processing
+
+# Quantum Trail Configuration
+quantum_trail:
+  enabled: true
+  local_blockchain: true
+  sync_interval_ms: 5000
+  
+  # Development blockchain settings
+  blockchain:
+    consensus: simulated
+    block_time_ms: 1000
+    storage_path: ./data/blockchain
+    
+  # Trail settings
+  trail:
+    anonymization_level: standard  # Options: basic, standard, enhanced
+    pattern_recognition_enabled: true
+    max_trail_history_days: 30
+
+# Cell Development Settings
+cells:
+  # Cell runtime settings
+  runtime:
+    execution_timeout_ms: 10000
+    max_memory_per_cell_mb: 100
+    max_concurrent_cells: 20
+    
+  # Cell build settings
+  build:
+    output_directory: ./build/cells
+    optimization_level: 0  # 0=None, 1=Basic, 2=Full (use 0 for development)
+    source_maps: true
+    wasm_validation: true
+    
+  # Cell testing settings
+  testing:
+    auto_test_on_build: true
+    test_timeout_ms: 5000
+    coverage_threshold: 70
+
+# Development Tools
+tools:
+  # Development dashboard
+  dashboard:
+    enabled: true
+    port: 8082
+    hot_reload: true
+    
+  # Simulation environment
+  simulation:
+    enabled: true
+    scenarios_path: ./tools/simulation/scenarios
+    recordings_path: ./tools/simulation/recordings
+    
+  # Visualization tools
+  visualization:
+    enabled: true
+    port: 8083
+    cell_graph_enabled: true
+    quantum_trail_explorer_enabled: true
+    
+  # Development utilities
+  utilities:
+    code_generator_enabled: true
+    template_path: ./tools/development/templates
+    lint_on_build: true
+
+# Logging Configuration
+logging:
+  file_path: ./logs/development.log
+  console_level: debug
+  file_level: trace
+  format: detailed  # Options: simple, detailed, json
+  components:
+    assembler: debug
+    cells: debug
+    providers: debug
+    quantum_trail: debug
+    runtime: debug
+
+# Networking
+network:
+  cors_enabled: true
+  allowed_origins:
+    - http://localhost:3000
+    - http://localhost:8080
+    - http://localhost:8082
+    - http://localhost:8083
+  request_timeout_ms: 30000
+  max_payload_size_mb: 20
+
+# Storage
+storage:
+  data_directory: ./data
+  temp_directory: ./temp
+  max_storage_gb: 10
+  
+  # Cache settings
+  cache:
+    enable_filesystem_cache: true
+    cache_directory: ./cache
+    max_cache_size_mb: 1024
+    ttl_seconds: 3600
+
+# Development-specific features
+features:
+  force_cell_reload: false
+  mock_providers: false
+  inject_test_data: false
+  profile_performance: true
+  auto_restart_on_crash: true
+  experimental_features_enabled: true

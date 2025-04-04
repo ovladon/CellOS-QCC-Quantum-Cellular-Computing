@@ -1,0 +1,234 @@
+{
+  "name": "file_system",
+  "version": "1.0.0",
+  "description": "System cell that provides file system access capabilities",
+  "author": "QCC Development Team",
+  "license": "MIT",
+  "capabilities": [
+    {
+      "name": "read_file",
+      "description": "Read content from a file",
+      "version": "1.0.0",
+      "parameters": [
+        {
+          "name": "path",
+          "type": "string",
+          "description": "Path to the file",
+          "required": true
+        },
+        {
+          "name": "encoding",
+          "type": "string",
+          "description": "File encoding (default: utf-8)",
+          "required": false
+        },
+        {
+          "name": "binary",
+          "type": "boolean",
+          "description": "Whether to return binary data",
+          "required": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "string",
+          "description": "Content of the file"
+        },
+        {
+          "name": "path",
+          "type": "string",
+          "description": "Path to the file"
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "description": "Size of the file in bytes"
+        }
+      ]
+    },
+    {
+      "name": "write_file",
+      "description": "Write content to a file",
+      "version": "1.0.0",
+      "parameters": [
+        {
+          "name": "path",
+          "type": "string",
+          "description": "Path to the file",
+          "required": true
+        },
+        {
+          "name": "content",
+          "type": "string",
+          "description": "Content to write",
+          "required": true
+        },
+        {
+          "name": "encoding",
+          "type": "string",
+          "description": "File encoding (default: utf-8)",
+          "required": false
+        },
+        {
+          "name": "binary",
+          "type": "boolean",
+          "description": "Whether the content is binary",
+          "required": false
+        },
+        {
+          "name": "append",
+          "type": "boolean",
+          "description": "Whether to append to the file",
+          "required": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "string",
+          "description": "Path to the file"
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "description": "Size of the file in bytes"
+        },
+        {
+          "name": "append",
+          "type": "boolean",
+          "description": "Whether the content was appended"
+        }
+      ]
+    },
+    {
+      "name": "list_directory",
+      "description": "List contents of a directory",
+      "version": "1.0.0",
+      "parameters": [
+        {
+          "name": "path",
+          "type": "string",
+          "description": "Path to the directory",
+          "required": true
+        },
+        {
+          "name": "pattern",
+          "type": "string",
+          "description": "Glob pattern for filtering",
+          "required": false
+        },
+        {
+          "name": "recursive",
+          "type": "boolean",
+          "description": "Whether to list recursively",
+          "required": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "items",
+          "type": "array",
+          "description": "Array of directory items"
+        },
+        {
+          "name": "path",
+          "type": "string",
+          "description": "Path to the directory"
+        },
+        {
+          "name": "count",
+          "type": "number",
+          "description": "Number of items in the directory"
+        }
+      ]
+    },
+    {
+      "name": "create_directory",
+      "description": "Create a directory",
+      "version": "1.0.0",
+      "parameters": [
+        {
+          "name": "path",
+          "type": "string",
+          "description": "Path to the directory",
+          "required": true
+        },
+        {
+          "name": "recursive",
+          "type": "boolean",
+          "description": "Whether to create parent directories",
+          "required": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "string",
+          "description": "Path to the directory"
+        },
+        {
+          "name": "created",
+          "type": "boolean",
+          "description": "Whether the directory was created"
+        }
+      ]
+    },
+    {
+      "name": "delete_file",
+      "description": "Delete a file or directory",
+      "version": "1.0.0",
+      "parameters": [
+        {
+          "name": "path",
+          "type": "string",
+          "description": "Path to the file or directory",
+          "required": true
+        },
+        {
+          "name": "recursive",
+          "type": "boolean",
+          "description": "Whether to recursively delete directories",
+          "required": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "string",
+          "description": "Path to the deleted file or directory"
+        },
+        {
+          "name": "deleted",
+          "type": "boolean",
+          "description": "Whether the file or directory was deleted"
+        }
+      ]
+    },
+    {
+      "name": "file_info",
+      "description": "Get information about a file or directory",
+      "version": "1.0.0",
+      "parameters": [
+        {
+          "name": "path",
+          "type": "string",
+          "description": "Path to the file or directory",
+          "required": true
+        }
+      ],
+      "outputs": [
+        {
+          "name": "info",
+          "type": "object",
+          "description": "Information about the file or directory"
+        }
+      ]
+    }
+  ],
+  "dependencies": [],
+  "resource_requirements": {
+    "memory_mb": 50,
+    "cpu_percent": 5
+  }
+}

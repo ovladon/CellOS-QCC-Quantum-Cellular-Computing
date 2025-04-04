@@ -1,0 +1,206 @@
+{
+  "name": "data_transformer",
+  "version": "1.0.0",
+  "description": "Middleware cell that provides data transformation capabilities",
+  "author": "QCC Development Team",
+  "license": "MIT",
+  "capabilities": [
+    {
+      "name": "convert_format",
+      "description": "Convert data between different formats",
+      "version": "1.0.0",
+      "parameters": [
+        {
+          "name": "data",
+          "type": "mixed",
+          "description": "Data to convert",
+          "required": true
+        },
+        {
+          "name": "source_format",
+          "type": "string",
+          "description": "Source format (json, csv, yaml, xml)",
+          "required": true
+        },
+        {
+          "name": "target_format",
+          "type": "string",
+          "description": "Target format (json, csv, yaml, xml)",
+          "required": true
+        },
+        {
+          "name": "options",
+          "type": "object",
+          "description": "Conversion options",
+          "required": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "data",
+          "type": "string",
+          "description": "Converted data"
+        }
+      ]
+    },
+    {
+      "name": "filter_data",
+      "description": "Filter data based on criteria",
+      "version": "1.0.0",
+      "parameters": [
+        {
+          "name": "data",
+          "type": "array",
+          "description": "Data to filter (list of dictionaries)",
+          "required": true
+        },
+        {
+          "name": "criteria",
+          "type": "object",
+          "description": "Filter criteria",
+          "required": true
+        }
+      ],
+      "outputs": [
+        {
+          "name": "data",
+          "type": "array",
+          "description": "Filtered data"
+        },
+        {
+          "name": "count",
+          "type": "number",
+          "description": "Number of items after filtering"
+        }
+      ]
+    },
+    {
+      "name": "sort_data",
+      "description": "Sort data based on key",
+      "version": "1.0.0",
+      "parameters": [
+        {
+          "name": "data",
+          "type": "array",
+          "description": "Data to sort (list of dictionaries)",
+          "required": true
+        },
+        {
+          "name": "key",
+          "type": "mixed",
+          "description": "Sort key or list of keys",
+          "required": true
+        },
+        {
+          "name": "reverse",
+          "type": "boolean",
+          "description": "Whether to sort in reverse order",
+          "required": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "data",
+          "type": "array",
+          "description": "Sorted data"
+        }
+      ]
+    },
+    {
+      "name": "group_data",
+      "description": "Group data based on key",
+      "version": "1.0.0",
+      "parameters": [
+        {
+          "name": "data",
+          "type": "array",
+          "description": "Data to group (list of dictionaries)",
+          "required": true
+        },
+        {
+          "name": "key",
+          "type": "mixed",
+          "description": "Grouping key or list of keys",
+          "required": true
+        }
+      ],
+      "outputs": [
+        {
+          "name": "data",
+          "type": "array",
+          "description": "Grouped data"
+        },
+        {
+          "name": "group_count",
+          "type": "number",
+          "description": "Number of groups"
+        }
+      ]
+    },
+    {
+      "name": "aggregate_data",
+      "description": "Aggregate data using specified functions",
+      "version": "1.0.0",
+      "parameters": [
+        {
+          "name": "data",
+          "type": "array",
+          "description": "Data to aggregate (list of dictionaries)",
+          "required": true
+        },
+        {
+          "name": "group_by",
+          "type": "mixed",
+          "description": "Optional grouping key",
+          "required": false
+        },
+        {
+          "name": "aggregations",
+          "type": "array",
+          "description": "List of aggregation operations",
+          "required": true
+        }
+      ],
+      "outputs": [
+        {
+          "name": "data",
+          "type": "mixed",
+          "description": "Aggregated data"
+        }
+      ]
+    },
+    {
+      "name": "transform_data",
+      "description": "Apply transformations to data",
+      "version": "1.0.0",
+      "parameters": [
+        {
+          "name": "data",
+          "type": "mixed",
+          "description": "Data to transform",
+          "required": true
+        },
+        {
+          "name": "transformations",
+          "type": "array",
+          "description": "List of transformation operations",
+          "required": true
+        }
+      ],
+      "outputs": [
+        {
+          "name": "data",
+          "type": "mixed",
+          "description": "Transformed data"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    "pyyaml"
+  ],
+  "resource_requirements": {
+    "memory_mb": 100,
+    "cpu_percent": 10
+  }
+}

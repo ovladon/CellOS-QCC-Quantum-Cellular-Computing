@@ -1,0 +1,58 @@
+# QCC Main Configuration File
+# This is the primary configuration file for the QCC system
+
+# Assembler configuration
+assembler:
+  user_id: "anonymous"
+  max_solutions: 10
+  max_cell_cache_size_mb: 512
+  default_request_timeout_ms: 30000
+  security_level: "standard"  # standard, high, maximum
+  verification_mode: "standard"  # standard, strict
+
+# Provider configuration
+providers:
+  urls:
+    - "http://localhost:8081"  # Local development provider
+  cache_dir: "data/cell-cache"
+  default_timeout_ms: 10000
+  retry_attempts: 3
+  retry_delay_ms: 1000
+
+# Quantum trail configuration
+quantum_trail:
+  blockchain_path: "data/quantum-trail"
+  encryption_key: "development-key-only"  # Change in production
+  sync_interval_ms: 5000
+  enabled: true
+  local_blockchain: true
+
+# Server configuration
+server:
+  host: "127.0.0.1"
+  port: 8080
+  reload: false
+  workers: 4
+  log_level: "info"
+  cors_origins:
+    - "*"  # Restrict in production
+
+# Cell configuration
+cells:
+  directory: "src/cells"
+  system_cells:
+    - "file_system"
+    - "network_interface"
+  middleware_cells:
+    - "data_visualization"
+  application_cells:
+    - "text_editor"
+    - "media_player"
+
+# Logging configuration
+logging:
+  level: "info"  # debug, info, warning, error, critical
+  file: "qcc.log"
+  max_size_mb: 10
+  backup_count: 3
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"

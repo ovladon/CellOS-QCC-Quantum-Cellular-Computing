@@ -1,0 +1,37 @@
+# QCC Development Configuration
+# Configuration settings for development environment
+
+# Extend from the main configuration
+extends: "../config.yaml"
+
+# Override settings for development
+assembler:
+  max_solutions: 20  # Allow more solutions in development
+
+providers:
+  urls:
+    - "http://localhost:8081"  # Local development provider
+
+server:
+  reload: true  # Enable hot reloading for development
+  log_level: "debug"  # More verbose logging
+  cors_origins:
+    - "*"
+
+quantum_trail:
+  local_blockchain: true
+  encryption_key: "development-key-only"
+
+logging:
+  level: "debug"
+  file: "qcc-dev.log"
+
+# Development-specific settings
+development:
+  auto_reload_cells: true
+  mock_providers: true
+  debug_intent_parser: true
+  example_intents:
+    - "Create a simple text editor"
+    - "Play a video file"
+    - "Generate a bar chart from my data"

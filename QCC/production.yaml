@@ -1,0 +1,37 @@
+# QCC Production Configuration
+# Configuration settings for production environment
+
+# Extend from the main configuration
+extends: "../config.yaml"
+
+# Override settings for production
+assembler:
+  security_level: "high"
+  verification_mode: "strict"
+  default_request_timeout_ms: 15000
+
+providers:
+  urls:
+    - "https://provider1.qcc-project.org"
+    - "https://provider2.qcc-project.org"
+  retry_attempts: 5
+
+server:
+  host: "0.0.0.0"  # Listen on all interfaces
+  port: 8080
+  reload: false
+  workers: 8
+  cors_origins:
+    - "https://qcc-project.org"
+    - "https://app.qcc-project.org"
+
+quantum_trail:
+  local_blockchain: false
+  encryption_key: "${QCC_ENCRYPTION_KEY}"  # Set via environment variable
+  blockchain_provider: "https://blockchain.qcc-project.org"
+
+logging:
+  level: "info"
+  file: "/var/log/qcc/qcc.log"
+  max_size_mb: 100
+  backup_count: 10

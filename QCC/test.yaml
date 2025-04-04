@@ -1,0 +1,31 @@
+# QCC Test Configuration
+# Configuration settings for testing environment
+
+# Extend from the development configuration
+extends: "development.yaml"
+
+# Override settings for testing
+assembler:
+  max_solutions: 5
+
+providers:
+  urls:
+    - "mock://provider"  # Mock provider for testing
+  mock_responses: true
+
+quantum_trail:
+  enabled: false  # Disable quantum trail for tests
+
+server:
+  port: 8089  # Use different port for tests
+
+logging:
+  level: "warning"  # Less verbose logging in tests
+  file: "qcc-test.log"
+
+# Test-specific settings
+test:
+  mock_all_apis: true
+  deterministic_cell_ids: true
+  skip_verification: true
+  memory_store: true  # Use in-memory storage

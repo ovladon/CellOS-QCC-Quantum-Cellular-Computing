@@ -1,0 +1,268 @@
+# QCC Logging Configuration
+# This file contains comprehensive logging settings for the QCC system
+
+# General Logging Settings
+general:
+  enabled: true
+  default_level: info  # Options: trace, debug, info, warning, error, critical
+  format: detailed     # Options: simple, detailed, json
+  show_timestamp: true
+  show_level: true
+  show_component: true
+  show_file_line: true
+  show_process_id: false
+  show_thread_id: false
+  max_message_length: 10000
+  truncate_long_messages: true
+  
+  # Environment-specific overrides
+  environment_overrides:
+    development:
+      default_level: debug
+      format: detailed
+      show_file_line: true
+    test:
+      default_level: debug
+      format: detailed
+      silent_for_tests: false
+    production:
+      default_level: info
+      format: json
+      show_file_line: false
+
+# File Logging Configuration
+file:
+  enabled: true
+  path: ./logs/qcc.log
+  level: debug
+  format: detailed
+  rotation:
+    enabled: true
+    max_size_mb: 100
+    backup_count: 10
+    compress_backups: true
+  separate_files:
+    errors:
+      enabled: true
+      path: ./logs/errors.log
+      level: error
+    security:
+      enabled: true
+      path: ./logs/security.log
+      level: info
+  environment_paths:
+    development: ./logs/development.log
+    test: ./logs/test.log
+    production: /var/log/qcc/production.log
+
+# Console Logging Configuration
+console:
+  enabled: true
+  level: info
+  format: simple
+  color_enabled: true
+  colors:
+    trace: cyan
+    debug: blue
+    info: green
+    warning: yellow
+    error: red
+    critical: magenta
+  symbols:
+    trace: "T"
+    debug: "D"
+    info: "I"
+    warning: "W"
+    error: "E"
+    critical: "C"
+
+# Remote Logging Configuration
+remote:
+  enabled: false
+  endpoint: https://logging.cellcomputing.ai/ingest
+  level: warning
+  batch_size: 100
+  flush_interval_seconds: 60
+  retry_count: 3
+  retry_delay_ms: 1000
+  timeout_ms: 5000
+  api_key_env: REMOTE_LOGGING_API_KEY
+  
+  # Structured data to include
+  include:
+    system_info: true
+    environment_variables: false
+    stack_traces: true
+    user_context: true
+
+# Component-Specific Logging Levels
+components:
+  assembler:
+    level: info
+    file_enabled: true
+    console_enabled: true
+    remote_enabled: true
+  
+  cells:
+    level: info
+    file_enabled: true
+    console_enabled: true
+    remote_enabled: true
+    
+    # Subcategories
+    cell_runtime:
+      level: info
+    cell_communication:
+      level: debug
+    cell_lifecycle:
+      level: debug
+  
+  providers:
+    level: info
+    file_enabled: true
+    console_enabled: true
+    remote_enabled: true
+  
+  quantum_trail:
+    level: info
+    file_enabled: true
+    console_enabled: true
+    remote_enabled: true
+    
+    # Subcategories
+    blockchain:
+      level: info
+    signature_generation:
+      level: debug
+    pattern_recognition:
+      level: info
+  
+  security:
+    level: info
+    file_enabled: true
+    console_enabled: true
+    remote_enabled: true
+    
+    # Security events always log regardless of level
+    always_log_events:
+      - authentication_failure
+      - verification_failure
+      - permission_denied
+      - suspicious_activity
+  
+  intent:
+    level: info
+    file_enabled: true
+    console_enabled: true
+    remote_enabled: true
+  
+  system:
+    level: info
+    file_enabled: true
+    console_enabled: true
+    remote_enabled: true
+    
+    # Subcategories
+    resource_monitoring:
+      level: info
+      interval_seconds: 60
+    network:
+      level: info
+    storage:
+      level: info
+
+# Error Handling and Reporting
+errors:
+  include_stack_traces: true
+  report_critical_errors: true
+  error_reporting_endpoint: https://errors.cellcomputing.ai/report
+  group_similar_errors: true
+  max_error_reports_per_minute: 60
+  excluded_error_codes: 
+    - CELL_WARNING_001
+    - NETWORK_TRANSIENT_ERROR
+    - USER_INPUT_ERROR
+  
+  # Error notification
+  notifications:
+    email_enabled: true
+    email_recipients_env: ERROR_EMAIL_RECIPIENTS
+    email_critical_only: true
+    slack_enabled: false
+    slack_webhook_env: ERROR_SLACK_WEBHOOK
+
+# Sensitive Data Protection
+sensitive_data:
+  redaction_enabled: true
+  redacted_fields:
+    - password
+    - api_key
+    - secret
+    - token
+    - credential
+    - auth
+    - private
+  hash_user_identifiers: true
+  hash_algorithm: sha256
+  redaction_replacement: "[REDACTED]"
+
+# Audit Logging
+audit:
+  enabled: true
+  separate_log: true
+  log_path: ./logs/audit.log
+  level: info
+  include_user_id: true
+  include_timestamp: true
+  include_source_ip: true
+  include_request_id: true
+  
+  # Events to audit
+  events:
+    user_actions: true
+    system_changes: true
+    security_events: true
+    access_control: true
+    data_changes: true
+
+# Performance Monitoring
+performance:
+  log_slow_operations: true
+  slow_operation_threshold_ms: 1000
+  include_operation_metrics: true
+  trace_enabled: true
+  trace_sampling_rate: 0.1  # 10% of operations
+  profiling_enabled: false
+  profiling_interval_seconds: 300
+
+# Log Aggregation and Analysis
+aggregation:
+  correlation_id_header: X-Correlation-ID
+  generate_missing_correlation_ids: true
+  propagate_correlation_id: true
+  add_span_id: true
+  context_depth: 5
+  include_thread_name: true
+
+# Debug Features (Development Only)
+debug:
+  verbose_mode: false
+  log_http_requests: false
+  log_http_responses: false
+  log_cell_messages: false
+  log_intent_details: false
+  log_quantum_trail_details: false
+  max_debug_log_size_mb: 500
+  auto_clean_debug_logs: true
+  
+  # Development tools integration
+  attach_debugger_on_error: false
+  break_on_critical: false
+  interactive_logging_console: false
+
+# Logging Configuration Management
+config:
+  dynamic_reload_enabled: true
+  reload_check_interval_seconds: 60
+  backup_config_before_change: true
+  validate_config_on_reload: true

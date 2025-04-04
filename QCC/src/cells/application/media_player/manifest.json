@@ -1,0 +1,242 @@
+{
+  "name": "media_player",
+  "version": "1.0.0",
+  "description": "A cell that provides media playback capabilities within QCC",
+  "author": "QCC Team",
+  "license": "MIT",
+  "capabilities": [
+    {
+      "name": "media_player",
+      "description": "Generates a media player UI for audio and video playback",
+      "version": "1.0.0",
+      "parameters": [
+        {
+          "name": "media_id",
+          "type": "string",
+          "description": "ID of media to play",
+          "required": false
+        },
+        {
+          "name": "playlist_id",
+          "type": "string",
+          "description": "ID of playlist to display",
+          "required": false
+        },
+        {
+          "name": "theme",
+          "type": "string",
+          "description": "UI theme (light or dark)",
+          "required": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "html",
+          "type": "string",
+          "description": "HTML interface for the media player",
+          "format": "html"
+        }
+      ]
+    },
+    {
+      "name": "play_media",
+      "description": "Play media from file path, media ID, or URL",
+      "version": "1.0.0",
+      "parameters": [
+        {
+          "name": "media_path",
+          "type": "string",
+          "description": "Path to media file",
+          "required": false
+        },
+        {
+          "name": "media_id",
+          "type": "string",
+          "description": "ID of existing media",
+          "required": false
+        },
+        {
+          "name": "media_url",
+          "type": "string",
+          "description": "URL of media to play",
+          "required": false
+        },
+        {
+          "name": "start_position",
+          "type": "number",
+          "description": "Starting position in seconds",
+          "required": false
+        },
+        {
+          "name": "volume",
+          "type": "number",
+          "description": "Playback volume (0.0 to 1.0)",
+          "required": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "media_id",
+          "type": "string",
+          "description": "Unique identifier for the played media"
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "description": "Playback status (playing, paused, stopped)"
+        },
+        {
+          "name": "media_info",
+          "type": "object",
+          "description": "Information about the media"
+        }
+      ]
+    },
+    {
+      "name": "control_playback",
+      "description": "Control media playback (play, pause, stop, seek, volume)",
+      "version": "1.0.0",
+      "parameters": [
+        {
+          "name": "action",
+          "type": "string",
+          "description": "Action to perform (play, pause, stop, seek, volume, next, previous)",
+          "required": true
+        },
+        {
+          "name": "media_id",
+          "type": "string",
+          "description": "ID of media to control",
+          "required": false
+        },
+        {
+          "name": "position",
+          "type": "number",
+          "description": "Seek position in seconds",
+          "required": false
+        },
+        {
+          "name": "volume",
+          "type": "number",
+          "description": "Volume level (0.0 to 1.0)",
+          "required": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "success",
+          "type": "boolean",
+          "description": "Whether the control action was successful"
+        },
+        {
+          "name": "state",
+          "type": "object",
+          "description": "Current playback state"
+        }
+      ]
+    },
+    {
+      "name": "manage_playlist",
+      "description": "Create and manage playlists",
+      "version": "1.0.0",
+      "parameters": [
+        {
+          "name": "action",
+          "type": "string",
+          "description": "Action to perform (create, add, remove, clear, get, list)",
+          "required": true
+        },
+        {
+          "name": "playlist_id",
+          "type": "string",
+          "description": "ID of playlist",
+          "required": false
+        },
+        {
+          "name": "playlist_name",
+          "type": "string",
+          "description": "Name of playlist (for create action)",
+          "required": false
+        },
+        {
+          "name": "media_items",
+          "type": "array",
+          "description": "Media items to add to playlist",
+          "required": false
+        },
+        {
+          "name": "media_id",
+          "type": "string",
+          "description": "Media ID to remove from playlist",
+          "required": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "success",
+          "type": "boolean",
+          "description": "Whether the playlist action was successful"
+        },
+        {
+          "name": "playlist_id",
+          "type": "string",
+          "description": "ID of the affected playlist"
+        },
+        {
+          "name": "playlist",
+          "type": "object",
+          "description": "Playlist information"
+        }
+      ]
+    },
+    {
+      "name": "get_media_info",
+      "description": "Get information about media",
+      "version": "1.0.0",
+      "parameters": [
+        {
+          "name": "media_path",
+          "type": "string",
+          "description": "Path to media file",
+          "required": false
+        },
+        {
+          "name": "media_id",
+          "type": "string",
+          "description": "ID of existing media",
+          "required": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "success",
+          "type": "boolean",
+          "description": "Whether media info was retrieved successfully"
+        },
+        {
+          "name": "media_info",
+          "type": "object",
+          "description": "Information about the media"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "capability": "file_system",
+      "required": true,
+      "description": "For accessing media files"
+    }
+  ],
+  "resource_requirements": {
+    "memory_mb": 50,
+    "cpu_percent": 15,
+    "storage_mb": 10
+  },
+  "settings": {
+    "supported_audio_formats": ["mp3", "wav", "ogg", "m4a", "flac"],
+    "supported_video_formats": ["mp4", "webm", "ogv"],
+    "max_playlist_items": 100,
+    "autoplay": true
+  }
+}
